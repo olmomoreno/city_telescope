@@ -30,7 +30,9 @@ int sliderButtonX = 32;
 boolean direction = true;
 boolean overSlider = false;
 boolean locked = false;
+boolean lockMouseY = false;
 int zoomValue = 1;
+int previousMouseY = 0;
 
 void setup() {
 
@@ -67,11 +69,25 @@ void draw() {
   image(city, imageXpos, imageYpos, imageWidth, imageHeight);
 
   // Draws the telescope effect
+  int mouseXpos = mouseX;
+  int mouseYpos = mouseY;
+  int mouseXlimit = 200;
   int ellipseSize = 800;
   noFill();
   strokeWeight(1000);
   stroke(0);
-  ellipse(mouseX, mouseY, ellipseSize, ellipseSize);
+  if(mouseXpos < mouseXlimit){
+    mouseXpos = mouseXlimit;
+    if(lockMouseY == false){
+      previousMouseY = mouseY;
+      lockMouseY = true;
+    }
+    mouseYpos = previousMouseY;
+  }
+  else{
+    lockMouseY = false;
+  }
+  ellipse(mouseXpos, mouseYpos, ellipseSize, ellipseSize);
 
   // Paddings (units -> px)
   int padding28 = 28;
@@ -92,15 +108,12 @@ void draw() {
   stroke(white);
   line(cardAreaWidth, 0, cardAreaWidth, height);
 
-  
-
   // Draws card/working area background
   noStroke();
   fill(black);
   rect(0, 0, cardAreaWidth, height);
 
-// Draws Top App Bar
-  
+  // Draws Top App Bar
   fill(gray1);
   rect(0, statusBarHeight, cardAreaWidth, topAppBarHeight);
 
