@@ -137,29 +137,39 @@ To open the city_telescope sketch in Processing:
 <!-- USAGE EXAMPLES -->
 ## 🛠️ Usage
 
-This sketch uses a predefined color palette declared in the `.pde` file. You can easily change the square’s color by modifying the `fill()` instruction.
+In this sketch there are two cities to zoom in/out with the virtual telescope (day and night city).
 
-#### 🎨 Color Definitions
+#### 🌆 City Definitions
 
 ```java
-// Color definitions
-color green1 = color(29, 185, 84); 
-color green2 = color(35, 124, 102); 
-color gray1  = color(33, 33, 33);
-color gray2  = color(83, 83, 83);
-color white  = color(255);
-color black  = color(0);
+  // Displays the city image
+  //PImage city = city_1; // Night city image
+  PImage city = city_2; // Day city image
+  int topZoomValue = 20;
+  int imageWidthCoefficient  = (city.width  - width)/topZoomValue;
+  int imageHeightCoefficient = (city.height - height)/topZoomValue;
+  int imageWidth  = ((zoomValue - 1) * imageWidthCoefficient) + width;
+  int imageHeight = ((zoomValue - 1) * imageHeightCoefficient) + height;
+  int imageXpos = ((zoomValue - 1) * imageWidthCoefficient)  * -1;
+  int imageYpos = ((zoomValue - 1) * imageHeightCoefficient) * -1;
+  image(city, imageXpos, imageYpos, imageWidth, imageHeight);
 ```
 
-To change the square's color, locate the following line in the `.pde` file:
+To change the image of the city, locate the following line in the `.pde` file:
 ```java
-fill(green1);
+//PImage city = city_1; // Night city image
 ```
 
-Replace `green1` with any of the other predefined color variables (e.g., `gray2`, `black`, `white`, etc.), or define your own:
+Remove the comment lines from it:
 
 ```java
-fill(color(200, 100, 50)); // Custom color
+PImage city = city_1; // Night city image
+```
+
+And comment the next line:
+
+```java
+//PImage city = city_2; // Day city image
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
