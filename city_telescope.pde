@@ -7,6 +7,8 @@
 
 //Images
 PImage rocketIcon;
+PImage city_1;
+PImage city_2;
 
 // Sketch's fonts
 PFont robotoRegular12;
@@ -38,6 +40,8 @@ void setup() {
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
+  city_1 = loadImage("images/pexels-13nuance-929678.jpg"); // Photo by Александр Прокофьев: https://www.pexels.com/photo/bird-s-eye-view-of-city-during-evening-929678/
+  city_2 = loadImage("images/pexels-lkloeppel-466685.jpg"); // Photo by Lukas Kloeppel: https://www.pexels.com/photo/empire-state-building-new-york-466685/
 
   // Creates font
   robotoRegular12 = createFont("fonts/Roboto-Regular.ttf", 12);
@@ -50,6 +54,8 @@ void setup() {
 void draw() {
 
   background(black);
+
+  image(city_1, 0, 0);
 
   // Paddings (units -> px)
   int padding28 = 28;
@@ -74,6 +80,10 @@ void draw() {
   noStroke();
   fill(gray1);
   rect(0, statusBarHeight, cardAreaWidth, topAppBarHeight);
+
+  // Draws card/working area background
+  fill(black);
+  rect(0, 0, cardAreaWidth, height);
 
   // Draws card
   int cardWidth = cardAreaWidth - (margin * 2);
@@ -148,13 +158,9 @@ void draw() {
 
   
   // Draws the green square
-  roundCorners = 10;
-  strokeWeight(1);
-  stroke(white);
-  fill(green1); 
-  rect(squareX, squareY, squareSize, squareSize, roundCorners);
+ 
 
-  // image(b,0,0,500,500);
+  // 
 //   noFill();
 //   strokeWeight(1000);
 //   stroke(0);
