@@ -54,13 +54,14 @@ void draw() {
 
   background(black);
 
+  // Displays the city image
+  PImage city = city_2;
   int topZoomValue = 20;
-  int imageWidthCoefficient  = (city_1.width - width)/topZoomValue;
-  int imageHeightCoefficient = (city_1.height - height)/topZoomValue;
+  int imageWidthCoefficient  = (city.width  - width)/topZoomValue;
+  int imageHeightCoefficient = (city.height - height)/topZoomValue;
   int imageWidth  = ((zoomValue - 1) * imageWidthCoefficient) + width;
   int imageHeight = ((zoomValue - 1) * imageHeightCoefficient) + height;
-
-  image(city_1, 0, 0, imageWidth, imageHeight);
+  image(city, 0, 0, imageWidth, imageHeight);
 
   // Draws the telescope effect
   int ellipseSize = 800;
