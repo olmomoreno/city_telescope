@@ -55,13 +55,16 @@ void draw() {
   background(black);
 
   // Displays the city image
-  PImage city = city_2;
+  //PImage city = city_1; // Night city image
+  PImage city = city_2; // Day city image
   int topZoomValue = 20;
   int imageWidthCoefficient  = (city.width  - width)/topZoomValue;
   int imageHeightCoefficient = (city.height - height)/topZoomValue;
   int imageWidth  = ((zoomValue - 1) * imageWidthCoefficient) + width;
   int imageHeight = ((zoomValue - 1) * imageHeightCoefficient) + height;
-  image(city, 0, 0, imageWidth, imageHeight);
+  int imageXpos = ((zoomValue - 1) * imageWidthCoefficient)  * -1;
+  int imageYpos = ((zoomValue - 1) * imageHeightCoefficient) * -1;
+  image(city, imageXpos, imageYpos, imageWidth, imageHeight);
 
   // Draws the telescope effect
   int ellipseSize = 800;
@@ -89,14 +92,17 @@ void draw() {
   stroke(white);
   line(cardAreaWidth, 0, cardAreaWidth, height);
 
-  // Draws Top App Bar
-  noStroke();
-  fill(gray1);
-  rect(0, statusBarHeight, cardAreaWidth, topAppBarHeight);
+  
 
   // Draws card/working area background
+  noStroke();
   fill(black);
   rect(0, 0, cardAreaWidth, height);
+
+// Draws Top App Bar
+  
+  fill(gray1);
+  rect(0, statusBarHeight, cardAreaWidth, topAppBarHeight);
 
   // Draws card
   int cardWidth = cardAreaWidth - (margin * 2);
