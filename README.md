@@ -257,7 +257,7 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [license-url]: https://github.com/olmomoreno/city_telescope/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: data/images/square_bounces.gif
+[product-screenshot]: data/images/city_telescope.gif
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
