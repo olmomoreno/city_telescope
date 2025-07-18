@@ -76,13 +76,13 @@ void draw() {
   noFill();
   strokeWeight(1000);
   stroke(0);
-  if(mouseXpos < mouseXlimit){
-    mouseXpos = mouseXlimit;
+  if(mouseXpos < mouseXlimit){ // If mouse goes on card area
+    mouseXpos = mouseXlimit;  // Telescope X position remains still
     if(lockMouseY == false){
-      previousMouseY = mouseY;
+      previousMouseY = mouseY; // Saves last mouseY position once
       lockMouseY = true;
     }
-    mouseYpos = previousMouseY;
+    mouseYpos = previousMouseY; // Telescope Y position remains still
   }
   else{
     lockMouseY = false;
