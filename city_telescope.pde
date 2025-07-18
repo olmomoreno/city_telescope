@@ -26,12 +26,11 @@ color white = color(255);
 color black = color(0);
 
 // Variable definitions
-float squareX = 200.0;
 int sliderButtonX = 32;
 boolean direction = true;
 boolean overSlider = false;
 boolean locked = false;
-int speedValue = 1;
+int zoomValue = 1;
 
 void setup() {
 
@@ -55,7 +54,20 @@ void draw() {
 
   background(black);
 
-  image(city_1, 0, 0);
+  int topZoomValue = 20;
+  int imageWidthCoefficient  = (city_1.width - width)/topZoomValue;
+  int imageHeightCoefficient = (city_1.height - height)/topZoomValue;
+  int imageWidth  = ((zoomValue - 1) * imageWidthCoefficient) + width;
+  int imageHeight = ((zoomValue - 1) * imageHeightCoefficient) + height;
+
+  image(city_1, 0, 0, imageWidth, imageHeight);
+
+  // Draws the telescope effect
+  int ellipseSize = 800;
+  noFill();
+  strokeWeight(1000);
+  stroke(0);
+  ellipse(mouseX, mouseY, ellipseSize, ellipseSize);
 
   // Paddings (units -> px)
   int padding28 = 28;
@@ -123,7 +135,7 @@ void draw() {
 
   // Writes card number variable
   textFont(robotoRegular50, fontSize50);
-  text(speedValue, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  text(zoomValue, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
 
   // Writes card number variable subtitle
   String cardNumVArSub = "Telescope zoom";
@@ -148,23 +160,12 @@ void draw() {
       if((mouseX > (margin * 2)) && (mouseX < cardWidth - circleSize)){ // Is the mouse over the slider line?
         sliderButtonX = mouseX;
         float sldrX = map(sliderButtonX, margin * 2, cardWidth - circleSize, 1, 21);
-        speedValue = int(sldrX);
+        zoomValue = int(sldrX);
       }
     }
   }
  
   circle(sliderButtonX + (circleSize/2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + (circleSize/32), circleSize);
-
-
-  
-  // Draws the green square
- 
-
-  // 
-//   noFill();
-//   strokeWeight(1000);
-//   stroke(0);
-//   ellipse(mouseX,mouseY,800,800);
 }
 
 // Interruption when mouse pressed event
