@@ -1,8 +1,10 @@
 /*****************************************************************
 **  SCENE: This scene design consist of 1 interactive element,  **
-**  it displays a green square that bounces horizontaly. The    **
-**  displacement speed can be modified using the slider in the  **
-**  card control area.                                          **
+**  it displays a transparent circle controlled by the mouse.   **
+**  The transparent circle acts as the lense of a telescope.    **
+**  Under it, it is displayed the image of a city. It is possi- **
+**  to zoom in and zoom out using the slider in the card control**
+**  area.                                                       **
 *****************************************************************/
 
 //Images
