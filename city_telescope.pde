@@ -102,7 +102,7 @@ void draw() {
   text(proLab, margin, statusBarHeight + topAppBarHeight - textOffsetHeight);
 
   // Writes card title
-  String cardTitle = "Sqr. bounces";
+  String cardTitle = "City telescope";
   textFont(robotoRegular20, fontSize20);
   text(cardTitle, margin * 2, statusBarHeight + topAppBarHeight + margin + padding28);
 
@@ -116,7 +116,7 @@ void draw() {
   text(speedValue, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
 
   // Writes card number variable subtitle
-  String cardNumVArSub = "Displacement speed";
+  String cardNumVArSub = "Telescope zoom";
   textFont(robotoRegular12, fontSize12);
   text(cardNumVArSub, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 6));
 
@@ -146,27 +146,6 @@ void draw() {
   circle(sliderButtonX + (circleSize/2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + (circleSize/32), circleSize);
 
 
-  // Square variables
-  int squareSize = 50;
-  int squareY = height/2 - squareSize/2;
-  
-  // Controls square's bounce
-  if(direction == true){
-    if((squareX + squareSize) >= width){ //If limit is reached
-      direction = false; //Direction changes
-    }
-    else{
-      squareX += speedValue; //Displace to the right
-    }
-  }
-  else{
-    if(squareX <= cardAreaWidth){ //If limit is reached
-      direction = true; //Direction changes
-    }
-    else{
-      squareX -= speedValue; //Displace to the left
-    }
-  }
   
   // Draws the green square
   roundCorners = 10;
@@ -174,6 +153,12 @@ void draw() {
   stroke(white);
   fill(green1); 
   rect(squareX, squareY, squareSize, squareSize, roundCorners);
+
+  // image(b,0,0,500,500);
+//   noFill();
+//   strokeWeight(1000);
+//   stroke(0);
+//   ellipse(mouseX,mouseY,800,800);
 }
 
 // Interruption when mouse pressed event
@@ -187,10 +172,3 @@ void mousePressed() {
 void mouseReleased() {
   locked = false;
 }
-
-
-// image(b,0,0,500,500);
-//   noFill();
-//   strokeWeight(1000);
-//   stroke(0);
-//   ellipse(mouseX,mouseY,800,800);
